@@ -80,7 +80,7 @@ define postgresql::hba (
     }
   }
 
-  if versioncmp($augeasversion, '0.7.3') < 0 {
+  if versioncmp($::augeasversion, '0.7.3') < 0 {
     $lpath = "/usr/share/augeas/lenses/contrib/"
   } else {
     $lpath = undef

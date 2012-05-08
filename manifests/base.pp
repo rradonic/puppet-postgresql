@@ -2,7 +2,7 @@
 
 ==Class: postgresql::base
 
-This class is dedicated to the common parts 
+This class is dedicated to the common parts
 shared by the different distributions
 
 */
@@ -23,7 +23,7 @@ class postgresql::base {
   }
 
   # lens included upstream since augeas 0.7.4
-  if versioncmp($augeasversion, '0.7.3') < 0 { $lens = present }
+  if versioncmp($::augeasversion, '0.7.3') < 0 { $lens = present }
   else { $lens = absent }
 
   file { "/usr/share/augeas/lenses/contrib/pg_hba.aug":
