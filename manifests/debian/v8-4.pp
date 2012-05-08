@@ -12,12 +12,10 @@ Requires:
 */
 class postgresql::debian::v8-4 {
 
-  $version = "8.4"
-
   case $lsbdistcodename {
     "lenny", "squeeze", "lucid" : {
 
-      include postgresql::debian::base
+      class { 'postgresql::debian::base': version => '8.4' }
 
       service {"postgresql":
         ensure    => running,
@@ -40,7 +38,7 @@ class postgresql::debian::v8-4 {
           "libpq5",
           "postgresql-${version}",
           "postgresql-client-${version}",
-          "postgresql-common", 
+          "postgresql-common",
           "postgresql-client-common",
           "postgresql-contrib-${version}"
           ]:

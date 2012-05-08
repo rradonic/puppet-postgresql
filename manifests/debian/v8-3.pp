@@ -12,12 +12,10 @@ Requires:
 */
 class postgresql::debian::v8-3 {
 
-  $version = "8.3"
-
   case $lsbdistcodename {
     "lenny" : {
-      
-      include postgresql::debian::base
+
+      class { 'postgresql::debian::base': version => '8.3' }
 
       service {"postgresql":
         name      => "postgresql-${version}",

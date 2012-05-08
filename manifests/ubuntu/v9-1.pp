@@ -9,12 +9,10 @@ Parameters:
 */
 class postgresql::ubuntu::v9-1 {
 
-  $version = "9.1"
-
   case $lsbdistcodename {
     'precise': {
 
-      include postgresql::debian::base
+      class { 'postgresql::debian::base': version => '9.1' }
 
       service {"postgresql":
         ensure    => running,
