@@ -12,10 +12,12 @@ Requires:
 */
 class postgresql::debian::v9-0 {
 
+  $version = "9.0"
+
   case $lsbdistcodename {
     squeeze: {
 
-      class { 'postgresql::debian::base': version => '9.0' }
+      class { 'postgresql::debian::base': version => $version }
 
       service {"postgresql":
         ensure    => running,
